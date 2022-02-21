@@ -9,17 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // 1. Pull in the Configuration for AAD Authentication
 var aadConfig = new ConfigurationBuilder()
-        .SetBasePath(Directory.GetCurrentDirectory())
-        .AddJsonFile("appsettings.json", optional: false)
-        .AddEnvironmentVariables()
-        .AddCommandLine(args)
-        .Build();
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false)
+    .AddEnvironmentVariables()
+    .AddCommandLine(args)
+    .Build();
 
-// 2. apply it to the MiddleWare (Microsoft.Identity.Web)
-builder.Services.AddMicrosoftIdentityWebApiAuthentication(aadConfig, "AzureAd", "Bearer", true)
-    .EnableTokenAcquisitionToCallDownstreamApi()
-     .AddDownstreamWebApi("WeatherApi", aadConfig.GetSection("DownstreamAPI"))
-    .AddInMemoryTokenCaches();
+// 2. Apply it to the MiddleWare (Microsoft.Identity.Web)
+builder.Services.AddMicrosoftIdentityWebApiAuthentication(aadConfig, "AzureAd", "Bearer", true);
 
 // Add services to the container.
 builder.Services.AddControllers();

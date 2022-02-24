@@ -1,7 +1,11 @@
 
 # Azure AD Protected Asp.net Core Web API - **Sample**
 
-# Overview
+<img src="./images/7.svg" width="150" height="150" />  
+
+.NET Framework
+
+# Overview 
 
 * How to Wire-up Startup for Authntication + Authorization
 * How to create an Azure AD Declaritive Configuration using appsettings.json

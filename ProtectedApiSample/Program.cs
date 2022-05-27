@@ -17,7 +17,7 @@ var aadConfig = new ConfigurationBuilder()
 
 // 2. Apply it to the MiddleWare (Microsoft.Identity.Web)
 builder.Services.AddMicrosoftIdentityWebApiAuthentication(aadConfig, "AzureAd", "Bearer", true);
-
+    
 // Add services to the container.
 builder.Services.AddControllers();
 
